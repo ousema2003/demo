@@ -3,6 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: depl-o19c
+  namespace: ns-demo'
 spec:
   template:
     metadata:
