@@ -1,0 +1,33 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: depl-o19c
+spec:
+  template:
+    metadata:
+      #name: mypo2
+      labels:
+        tier: db19c
+        app: hello
+    spec:
+      volumes:
+      - name: oracle-storage
+        persistentVolumeClaim:
+          claimName: pvc-oracle
+      containers:
+      - name : oracle19c
+        image: ousema2003/myrepo:oracle19c
+        ports:
+        - containerPort: 1521
+
+        volumeMounts:
+          - mountPath: "/u01/app/oracle/oradata/ORCL"
+            name: oracle-storage
+
+  replicas: 1
+  selector:
+    matchLabels:
+      tier: db19c
+      app: hello
+...
