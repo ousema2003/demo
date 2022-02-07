@@ -2,6 +2,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: pvc-oracle
+  namespace: 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
 spec: 
   storageClassName: manual
   accessModes: 
