@@ -1,3 +1,4 @@
+---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -12,3 +13,19 @@ spec:
     - ReadWriteMany
   hostPath:
     path: "/u01/app/oracle/oradata/ORCL" 
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-tomcat8
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteMany
+  hostPath:
+    path: "/opt/config"
+...
